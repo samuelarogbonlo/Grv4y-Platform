@@ -1,0 +1,44 @@
+version: "3.7"
+services:
+  auth-api:
+    build: ./auth-api
+    restart: always
+    environment:
+      - HTTP_PORT=5000
+      - JWT_SECRET=secret
+    # ports:
+    #   - "5100:3000"
+
+  core-api:
+    build: ./core-api
+    depends_on:
+      - redis
+    restart: always
+    environment:
+      - HTTP_PORT=3000
+      - JWT_SECRET=secret
+      - REDIS_URL=redis://redis:6379/0
+    #   - "5200:3000"
+
+  psp-connector:
+    build: ./psp-connector
+    depends_on:
+      - redis
+    restart: always
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+
+  platform:
+    image: nginx
+    restart: always
+    ports:
+      - "3000:80"
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      # - <path/to/your/certs>:/etc/ssl/private
+
+  redis:
+    image: redis:6.0-alpine
+    restart: always
+    # ports:
+    #   - "6379"
