@@ -32,7 +32,6 @@ There are 3 distinct services:
 - Ensure Redis is installed and running.
 - Ensure to always be in the right directory.
 
-
 ## Start-Up Processes
 
 - Build all the docker images by getting to the directories of each of the services and running `docker build .`.
@@ -41,9 +40,14 @@ There are 3 distinct services:
 - Run the application depending on the python version running on your local machine.
 
 Test the endpoints as well. Use the testing processes listed below:
+- `http -v http://0.0.0.0:3000/auth/health`
 - `http -v POST http://0.0.0.0:3000/auth/token \
   username=alice \
   password=password`
+- `http -v POST http://0.0.0.0:3000/transaction/transaction \
+  amount=100 \
+  currency=USD \
+  token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFsaWNlIiwiZW5hYmxlZCI6dHJ1ZSwiZXhwIjoxNjYxODA0OTcwfQ.ir60Jfc-KdultETGkqOfUbmGFnKiQDWKv_GjHpqlQac`
   
 ## Authors
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo) · [Twitter](https://twitter.com/samuelarogbonlo)
