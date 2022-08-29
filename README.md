@@ -39,8 +39,12 @@ There are 3 distinct services:
 - Start the local enviroment with `Docker-compose up`.
 - Install all the requirments for each service. 
 - Run the application depending on the python version running on your local machine.
-- Test the endpoints as well
 
+Test the endpoints as well. Use the testing processes listed below:
+- `http -v POST http://0.0.0.0:3000/auth/token \
+  username=alice \
+  password=password`
+  
 ## Authors
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo) · [Twitter](https://twitter.com/samuelarogbonlo)
 
