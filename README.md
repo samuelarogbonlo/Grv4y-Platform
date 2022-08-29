@@ -34,7 +34,6 @@ There are 3 distinct services:
 
 ## Start-Up Processes
 
-- Build all the docker images by getting to the directories of each of the services and running `docker build .`.
 - Start the local enviroment with `Docker-compose up`.
 - Install all the requirments for each service. 
 - Run the application depending on the python version running on your local machine.
