@@ -26,6 +26,10 @@ There are 3 distinct services:
 - [Core API] - Processes transaction requests.
 - [PSP Connector] - Processes the transactions with a Payment Service Provider (PSP).
 
+## Factors In Architectural Decision
+- Docker compose was chosen since we are considering a local enviroment and of course, it's easy to start/set up.
+- NGINX was also chosen as well based on it's ease of configurability and ability to achieve easy path routing as well.
+
 ## Requirments
 - Ensure the ports are different for each of the services.
 - Ensure Docker Daemon is running.
